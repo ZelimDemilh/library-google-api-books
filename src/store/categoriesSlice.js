@@ -5,7 +5,14 @@ const categoriesSlice = createSlice({
   initialState: {
     error: null,
     pending: false,
-    categories: ["art", "biography", "computers", "history", "medical", "poetry"],
+    categories: [
+      "art",
+      "biography",
+      "computers",
+      "history",
+      "medical",
+      "poetry",
+    ],
   },
   reducers: {},
   extraReducers: {},

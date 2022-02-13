@@ -5,8 +5,16 @@ export const searchBook = createAsyncThunk(
   async function (searchParams, { rejectWithValue }) {
     try {
       const res = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=nodejs&orderBy=relevance&maxResults=1"
+        `https://www.googleapis.com/books/v1/volumes?q=${searchParams.text}${searchParams.category !== "all" && `+subject:${searchParams.category}`}&orderBy=${searchParams.sort}&maxResults=40`
       );
+
+      const data = await res.json();
+
+      if (data.error) {
+        throw new Error(data.error);
+      }
+
+      return data;
     } catch (e) {
       return rejectWithValue(e.error);
     }
@@ -18,7 +26,7 @@ export const updateBooks = createAsyncThunk(
   async function (_, { rejectWithValue }) {
     try {
       const res = await fetch(
-        "https://www.googleapis.com/books/v1/volumes?q=nodejs&orderBy=relevance&maxResults=4"
+        "https://www.googleapis.com/books/v1/volumes?q=_&orderBy=relevance&maxResults=40"
       );
 
       const data = await res.json();
@@ -57,6 +65,19 @@ const booksSlice = createSlice({
       state.books = action.payload.items;
     },
     [updateBooks.rejected]: (state, action) => {
+      state.pending = false;
+      state.error = action.payload;
+    },
+
+    [searchBook.pending]: (state) => {
+      state.pending = true;
+      state.error = null;
+    },
+    [searchBook.fulfilled]: (state, action) => {
+      state.pending = false;
+      state.books = action.payload.items;
+    },
+    [searchBook.rejected]: (state, action) => {
       state.pending = false;
       state.error = action.payload;
     },

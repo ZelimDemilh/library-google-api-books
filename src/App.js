@@ -1,12 +1,17 @@
 import React from "react";
-import Header from "./components/header";
-import Body from "./components/body";
+import { Route, Routes } from "react-router-dom"
+import Header from "./components/header/Header";
+import HomePage from "./components/pages/homePage/HomePage";
+import OneBook from "./components/pages/OneBook";
 
 const App = () => {
   return (
-    <div className="container">
+    <div className="container-md">
       <Header />
-      <Body />
+        <Routes>
+            <Route path="/" element={<HomePage />}/>
+            <Route path="/book/:id" element={<OneBook/>}/>
+        </Routes>
     </div>
   );
 };

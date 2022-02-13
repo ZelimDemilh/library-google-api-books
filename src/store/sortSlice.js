@@ -5,7 +5,7 @@ const sortSlice = createSlice({
   initialState: {
     error: null,
     pending: false,
-    sort: ["relevance","newest"],
+    sort: ["relevance", "newest"],
   },
   reducers: {},
   extraReducers: {},

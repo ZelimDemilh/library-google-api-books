@@ -1,6 +1,6 @@
-.backgroundImg{
-    background-image: url("headerBackgroundImage.jpeg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+.backgroundImg {
+  background-image: url("headerBackgroundImage.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
