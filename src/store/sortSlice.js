@@ -1,16 +1,16 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
-const booksSlice = createSlice({
-  name: "books",
+const sortSlice = createSlice({
+  name: "sort",
   initialState: {
     error: null,
     pending: false,
-    books: [],
+    sort: ["relevance","newest"],
   },
   reducers: {},
   extraReducers: {},
 });
 
-// export const {} = categorySlice.actions
+// export const {} = sortSlice.actions
 
-export default booksSlice.reducer;
+export default sortSlice.reducer;
