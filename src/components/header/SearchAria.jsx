@@ -1,15 +1,15 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { searchBook, updateBooks } from "../../store/booksSlice";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SearchAria = ({ handleSearchParams, searchParams }) => {
   const dispatch = useDispatch();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const searchBooksInGoogle = async () => {
-     navigate('/')
+    navigate("/");
     dispatch(searchBook(searchParams));
   };
 
@@ -20,7 +20,7 @@ const SearchAria = ({ handleSearchParams, searchParams }) => {
         className="form-control w-50"
         onChange={(e) => handleSearchParams.searchText(e.target.value)}
         value={searchParams.text}
-        onKeyDown={(e)=> e.key === "Enter" && searchBooksInGoogle()}
+        onKeyDown={(e) => e.key === "Enter" && searchBooksInGoogle()}
       />
 
       <button

@@ -12,7 +12,11 @@ const Books = ({ paginations }) => {
     <div className="row row-cols-1 row-cols-md-3 g-4 bg-light">
       {books.map((book, index) => {
         return (
-          <NavLink key={index} className="text-decoration-none text-black" to={`../book/${book.id}`}>
+          <NavLink
+            key={index}
+            className="text-decoration-none text-black"
+            to={`../book/${book.id}`}
+          >
             <div className={`col p-2`}>
               <div className={`card border-0 p-2 ${cl.card}`}>
                 <img
@@ -26,7 +30,9 @@ const Books = ({ paginations }) => {
                 />
                 <div className="card-body">
                   <p className="card-text text-black-50">
-                    {book.volumeInfo.categories? book.volumeInfo.categories[0]:"no categories"}
+                    {book.volumeInfo.categories
+                      ? book.volumeInfo.categories[0]
+                      : "no categories"}
                   </p>
                   <h5 className="card-title">
                     {book.volumeInfo.title || "no title"}

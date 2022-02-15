@@ -9,7 +9,7 @@ const Sort = ({ handleSearchParams, searchParams }) => {
         onChange={(e) => handleSearchParams.sort(e.target.value)}
         className="form-select w-auto"
       >
-        <option selected >relevance</option>
+        <option selected>relevance</option>
         <option> newest </option>
       </select>
     </div>

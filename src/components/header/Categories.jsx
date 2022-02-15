@@ -12,7 +12,10 @@ const Categories = ({ handleSearchParams, searchParams }) => {
         onChange={(e) => handleSearchParams.category(e.target.value)}
         aria-label="Default select example"
       >
-        <option selected onChange={(category) => handleSearchParams.category(category)}>
+        <option
+          selected
+          onChange={(category) => handleSearchParams.category(category)}
+        >
           all
         </option>
         {categories.map((category, index) => {

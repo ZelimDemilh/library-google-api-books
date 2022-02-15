@@ -5,7 +5,9 @@ export const searchBook = createAsyncThunk(
   async function (searchParams, { rejectWithValue }) {
     try {
       const res = await fetch(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchParams.text}${searchParams.category !== "all" && `+subject:${searchParams.category}`}&orderBy=${searchParams.sort}&maxResults=40`
+        `https://www.googleapis.com/books/v1/volumes?q=${searchParams.text}${
+          searchParams.category !== "all" && `+subject:${searchParams.category}`
+        }&orderBy=${searchParams.sort}&maxResults=40`
       );
 
       const data = await res.json();
