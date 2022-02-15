@@ -18,8 +18,8 @@ const Categories = ({ handleSearchParams, searchParams }) => {
         >
           all
         </option>
-        {categories.map((category, index) => {
-          return <option key={index}> {category} </option>;
+        {categories.map((category) => {
+          return <option key={category}> {category} </option>;
         })}
       </select>
     </div>

@@ -10,10 +10,10 @@ const Books = ({ paginations }) => {
 
   return (
     <div className="row row-cols-1 row-cols-md-3 g-4 bg-light">
-      {books.map((book, index) => {
+      {books.map((book) => {
         return (
           <NavLink
-            key={index}
+            key={book.id}
             className="text-decoration-none text-black"
             to={`../book/${book.id}`}
           >

@@ -40,9 +40,7 @@ const HomePage = () => {
     );
   }
 
-  console.log(books);
-
-  if (books === undefined) {
+  if (!books) {
     return (
       <div>
         <h2>nothing was found for your query</h2>
